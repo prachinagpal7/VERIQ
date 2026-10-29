@@ -4,35 +4,6 @@
 
 VERIQ helps candidates prepare for technical interviews. Run an AI-led mock interview, get a scored report with feedback, then practice coding problems in an in-browser editor with hidden-test evaluation, all tracked from a personal dashboard.
 
-<p align="center">
-  <img src="screenshots/landing.jpeg" width="100%" alt="VERIQ landing page" />
-</p>
-
-## Screenshots
-
-<table>
-  <tr>
-    <td align="center" width="33%"><b>Login and Signup</b><br /><img src="screenshots/auth.jpeg" width="100%" alt="Login and signup" /></td>
-    <td align="center" width="33%"><b>Dashboard</b><br /><img src="screenshots/dashboard.jpeg" width="100%" alt="Dashboard" /></td>
-    <td align="center" width="33%"><b>Dashboard (activity)</b><br /><img src="screenshots/dashboard2.jpeg" width="100%" alt="Dashboard activity" /></td>
-  </tr>
-  <tr>
-    <td align="center" width="33%"><b>Coding Activity</b><br /><img src="screenshots/coding.jpeg" width="100%" alt="Coding activity" /></td>
-    <td align="center" width="33%"><b>Problem Details</b><br /><img src="screenshots/problemDetails.jpeg" width="100%" alt="Problem details and editor" /></td>
-    <td align="center" width="33%"><b>Interview Hub</b><br /><img src="screenshots/interview.jpeg" width="100%" alt="Interview hub" /></td>
-  </tr>
-  <tr>
-    <td align="center" width="33%"><b>Technical Chat: Configure</b><br /><img src="screenshots/configure.jpeg" width="100%" alt="Technical chat configuration" /></td>
-    <td align="center" width="33%"><b>Technical Chat</b><br /><img src="screenshots/chatInterview.jpeg" width="100%" alt="Technical chat interview" /></td>
-    <td align="center" width="33%"><b>Technical Chat: Report</b><br /><img src="screenshots/chatReport.jpeg" width="100%" alt="Technical chat report" /></td>
-  </tr>
-  <tr>
-    <td align="center" width="33%"><b>Video Interview: Configure</b><br /><img src="screenshots/videoConfigure.jpeg" width="100%" alt="Video interview configuration" /></td>
-    <td align="center" width="33%"><b>Video Interview</b><br /><img src="screenshots/videoInterview.jpeg" width="100%" alt="Video interview" /></td>
-    <td align="center" width="33%"><b>Video Interview: Report</b><br /><img src="screenshots/videoReport.jpeg" width="100%" alt="Video interview report" /></td>
-  </tr>
-</table>
-
 ## Features
 
 ### AI mock interviews
@@ -56,7 +27,6 @@ VERIQ helps candidates prepare for technical interviews. Run an AI-led mock inte
 - Email/password signup and login with JWT access tokens and an HTTP-only refresh-token cookie.
 - Dashboard with recent activity, saved problems, and the problem of the day.
 - Credit-based interviews: each new interview deducts a configured charge from your balance.
-- The API supports an `interviewee` or `interviewer` account role; the interviewer side is UI-only for now (see limitations).
 
 ## How it works
 
@@ -154,7 +124,6 @@ node seed/seedHiddenTestCase.js
 
 - **The video interview is not a live video call.** It captures your local camera/mic, uses browser speech recognition for your answers and speech synthesis for the interviewer, and shows a bundled avatar clip. It needs camera/mic permission and a browser that supports `SpeechRecognition`.
 - **Real-interviewer sessions are unavailable.** The option is shown disabled; the API only supports `chat` and `video` interviews.
-- **Interviewer dashboard, profile, and settings are UI-only.** The interviewer dashboard uses sample data, and there are no endpoints for scheduling, profile editing, password change, or notifications.
 - **The problem catalog is static.** It comes from the seed scripts; there is no automated weekly refresh.
 - **Deployment needs config work.** CORS allows only `http://localhost:5173`, and refresh cookies are `httpOnly`, `secure`, and `sameSite: "strict"`. Update the origin and cookie policy for your production domains and HTTPS.
 - **External services are runtime dependencies.** AI generation and code execution depend on provider credentials, availability, and quotas.
@@ -182,7 +151,6 @@ Protected routes need `Authorization: Bearer <access-token>`.
 | `POST` | `/api/auth/refresh-token` | Rotate refresh token, issue access token | Cookie |
 | `GET` | `/api/auth/get-me` | Current user | Yes |
 | `GET` | `/api/auth/logout` | Revoke current session | Cookie |
-| `POST` | `/api/auth/role` | Set account role | Yes |
 | `GET` | `/api/dashboard/dashboard` | Activity, saved problems, problem of the day | Yes |
 | `GET` | `/api/dashboard/coding` | Problem catalog + saved/accepted IDs | Yes |
 | `POST` | `/api/dashboard/coding/bookmark/:problemId` | Toggle bookmark | Yes |
@@ -223,6 +191,33 @@ veriq/
 ```
 
 </details>
+
+---
+
+## Screenshots
+
+<table>
+  <tr>
+    <td align="center" width="33%"><b>Landing Page</b><br /><img src="images/landing1.png" width="100%" alt="Landing Page" /></td>
+    <td align="center" width="33%"><b>Signup</b><br /><img src="images/auth1.png" width="100%" alt="Signup" /></td>
+    <td align="center" width="33%"><b>Dashboard</b><br /><img src="images/dashboard1.png" width="100%" alt="Dashboard" /></td>
+  </tr>
+  <tr>
+    <td align="center" width="33%"><b>Coding Activity</b><br /><img src="images/coding1.png" width="100%" alt="Coding activity" /></td>
+    <td align="center" width="33%"><b>Problem Details</b><br /><img src="images/problemdet1.png" width="100%" alt="Problem details and editor" /></td>
+    <td align="center" width="33%"><b>Interview Hub</b><br /><img src="images/interview1.png" width="100%" alt="Interview hub" /></td>
+  </tr>
+  <tr>
+    <td align="center" width="33%"><b>Technical Chat: Configure</b><br /><img src="images/configure3.png" width="100%" alt="Technical chat configuration" /></td>
+    <td align="center" width="33%"><b>Technical Chat</b><br /><img src="images/technicalInt.jpeg" width="100%" alt="Technical chat interview" /></td>
+    <td align="center" width="33%"><b>Technical Chat: Report</b><br /><img src="images/chatReport4.png" width="100%" alt="Technical chat report" /></td>
+  </tr>
+  <tr>
+    <td align="center" width="33%"><b>Video Interview: Configure</b><br /><img src="images/videoInt1.png" width="100%" alt="Video interview configuration" /></td>
+    <td align="center" width="33%"><b>Video Interview</b><br /><img src="images/videoInt3.jpeg" width="100%" alt="Video interview" /></td>
+    <td align="center" width="33%"><b>Video Interview: Report</b><br /><img src="images/videoReport3.png" width="100%" alt="Video interview report" /></td>
+  </tr>
+</table>
 
 ---
 
