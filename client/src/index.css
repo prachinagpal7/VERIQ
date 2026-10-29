@@ -1,0 +1,59 @@
+@import "tailwindcss";    /*this imports tailwind css*/
+
+:root {
+  color-scheme: dark; /* native inputs, selects and scrollbars follow the dark theme */
+}
+
+body {
+  background-color: #09090b; /* zinc-950 */
+  color: #f4f4f5;            /* zinc-100 */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Keep browser autofill from painting a light background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #f4f4f5;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Scrollbars: flat, neutral */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #3f3f46; /* zinc-700 */
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b; /* zinc-600 */
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 #09090b;
+}
+
+/* Text selection and keyboard focus use the accent */
+::selection {
+  background: rgba(129, 140, 248, 0.3); /* indigo-400 @ 30% */
+}
+:focus-visible {
+  outline: 2px solid #818cf8; /* indigo-400 */
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
