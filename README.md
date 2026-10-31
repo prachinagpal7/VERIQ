@@ -4,6 +4,10 @@
 
 VERIQ helps candidates prepare for technical interviews. Run an AI-led mock interview, get a scored report with feedback, then practice coding problems in an in-browser editor with hidden-test evaluation, all tracked from a personal dashboard.
 
+### Live Demo 
+
+[**Visit VERIQ →**](https://veriq-ochre.vercel.app/)
+
 ## Features
 
 ### AI mock interviews
